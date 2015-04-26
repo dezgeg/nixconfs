@@ -12,6 +12,7 @@
     iftop
     lshw
     mtr
+    ncdu
     nix-repl
     psmisc # killall
     pv
