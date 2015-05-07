@@ -11,12 +11,14 @@
     htop
     iftop
     lshw
+    lsof
     mtr
     ncdu
     nix-repl
     psmisc # killall
     pv
     rxvt_unicode.terminfo
+    screen
     tcpdump
     traceroute
     tree
