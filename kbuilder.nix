@@ -14,15 +14,18 @@
     picocom
   ];
 
-  services.timesyncd.enable = lib.mkForce false;
+  services.timesyncd.enable = lib.mkForce false; # Change this once systemd is updated
+  services.nix-serve.enable = true;
+
   services.logind.extraConfig = ''
     HandleLidSwitch=ignore
   '';
 
   networking = {
+    wireless.enable = true;
+
     hostName = "kbuilder";
     hostId = "c809225e";
-    wireless.enable = true;
     extraHosts = ''
       10.0.0.1 kbuilder
       10.0.0.2 raspi
@@ -33,7 +36,7 @@
       enable = lib.mkForce true;
       allowPing = true;
       logRefusedConnections = false;
-      rejectPackets = true;
+      rejectPackets = false;
       allowedTCPPortRanges = [{ from = 220; to = 230; }];
       trustedInterfaces = ["enp9s0"];
     };
@@ -53,8 +56,6 @@
     createMountPoints = true;
     exports = ''
       /srv/nfs    10.0.0.0/8(rw,async,no_subtree_check,no_root_squash,nohide)
-      /nix        10.0.0.0/8(rw,async,no_subtree_check,no_root_squash,nohide)
-      /nix/store  10.0.0.0/8(ro,async,no_subtree_check,no_root_squash,nohide)
     '';
   };
 
