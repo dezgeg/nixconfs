@@ -15,6 +15,7 @@
     mtr
     ncdu
     nix-repl
+    pciutils # lspci
     psmisc # killall
     pv
     rxvt_unicode.terminfo
@@ -22,6 +23,7 @@
     tcpdump
     traceroute
     tree
+    usbutils # lsusb
     vim
     wget
     zsh
@@ -29,8 +31,10 @@
 
   networking.domain = "dezgeg.me";
   networking.firewall.enable = false;
+
   services.openssh.enable = true;
   services.openssh.ports = [222];
+  programs.ssh.setXAuthLocation = true; # forward X11 connections
 
   services.nixosManual.enable = false; # slows down nixos-rebuilds
   services.nscd.enable = false;
@@ -57,10 +61,8 @@
   boot.tmpOnTmpfs = true;
 
   time.timeZone = "Europe/Helsinki";
-  i18n = {
-    consoleKeyMap = "dvorak";
-    defaultLocale = "en_US.UTF-8";
-  };
+  i18n.consoleKeyMap = "dvorak";
+  i18n.defaultLocale = "en_US.UTF-8";
 
   nix.binaryCaches = [
     "https://cache.nixos.org/"
