@@ -10,8 +10,10 @@
     git
     htop
     iftop
+    iperf
     lshw
     lsof
+    mosh
     mtr
     ncdu
     nix-repl
@@ -65,7 +67,7 @@
   i18n.defaultLocale = "en_US.UTF-8";
 
   nix.binaryCaches = [
-    "https://cache.nixos.org/"
-    "https://hydra.nixos.org/"
+    "http://cache.nixos.org/"
+    "http://hydra.nixos.org/"
   ];
 }
