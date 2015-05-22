@@ -17,6 +17,7 @@
   ];
 
   networking.hostName = "jetson";
+  networking.hostId = "71d65fa9";
 
   # Remove these!
   services.openssh.ports = lib.mkForce [22];
