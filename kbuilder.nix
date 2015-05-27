@@ -4,7 +4,7 @@
       ./hardware-configuration.nix
       ./common.nix
       ./passwords.nix
-    ];
+  ];
 
   boot.loader.grub.enable = true;
   boot.loader.grub.device = "/dev/sda";
@@ -105,4 +105,16 @@
       { sourcePort = 230; destination = "10.0.0.2:230"; }   # jetson-powerctl on raspi
     ];
   };
+
+  nix.readOnlyStore = false; # nix-push --link fails otherwise
+  nix.distributedBuilds = true;
+  nix.buildMachines = [
+    {
+      hostName = "jetson";
+      sshUser = "root";
+      sshKey = "/etc/remote-builds/id_rsa";
+      system = "armv7l-linux";
+      maxJobs = 4;
+    }
+  ];
 }
