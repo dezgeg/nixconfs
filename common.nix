@@ -60,7 +60,12 @@
   boot.loader.grub.version = 2;
   boot.loader.timeout = 1;
   boot.blacklistedKernelModules = ["tpm_tis" "pcspkr"];
-  boot.tmpOnTmpfs = true;
+
+  fileSystems."/tmp" = {
+    device = "nodev";
+    fsType = "tmpfs";
+    options = "size=4G";
+  };
 
   time.timeZone = "Europe/Helsinki";
   i18n.consoleKeyMap = "dvorak";
