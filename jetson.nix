@@ -35,6 +35,7 @@
     device = "/dev/mmcblk0p1";
     fsType = "ext4";
   };
+  swapDevices = [ { device = "/dev/mmcblk0p2"; } ];
 
   boot.consoleLogLevel = 8;
   boot.kernelParams = ["console=ttyS0,115200n8"];
