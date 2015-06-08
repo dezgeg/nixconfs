@@ -33,6 +33,8 @@
 
   networking.domain = "dezgeg.me";
   networking.firewall.enable = false;
+  networking.useNetworkd = true;
+  networking.nameservers = ["8.8.8.8" "8.8.4.4"];
 
   services.openssh.enable = true;
   services.openssh.ports = [222];
@@ -42,7 +44,9 @@
   services.nscd.enable = false;
   services.cron.enable = false;
   services.ntp.enable = false;
+
   services.timesyncd.enable = true;
+  services.resolved.enable = true;
 
   security.sudo.wheelNeedsPassword = false;
   services.mingetty.autologinUser = "tmtynkky";
