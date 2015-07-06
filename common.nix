@@ -1,10 +1,12 @@
 { config, pkgs, ... }: {
 
   environment.systemPackages = with pkgs; [
+    bc
     bind # nslookup, dig
     binutils # strings
     dtrx
     elinks
+    ethtool
     file
     gdb
     git
@@ -16,7 +18,9 @@
     mosh
     mtr
     ncdu
+    nix-prefetch-scripts
     nix-repl
+    nox
     pciutils # lspci
     psmisc # killall
     pv
@@ -39,6 +43,7 @@
   services.openssh.enable = true;
   services.openssh.ports = [222];
   programs.ssh.setXAuthLocation = true; # forward X11 connections
+  programs.bash.enableCompletion = true;
 
   services.nixosManual.enable = false; # slows down nixos-rebuilds
   services.nscd.enable = false;
