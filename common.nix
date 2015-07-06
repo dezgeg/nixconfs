@@ -76,12 +76,11 @@
     options = "size=4G";
   };
 
+  services.journald.extraConfig = "SystemMaxUse=100M";
+
   time.timeZone = "Europe/Helsinki";
   i18n.consoleKeyMap = "dvorak";
   i18n.defaultLocale = "en_US.UTF-8";
 
-  nix.binaryCaches = [
-    "http://cache.nixos.org/"
-    "http://hydra.nixos.org/"
-  ];
+  nixpkgs.config.allowUnfree = true;
 }
