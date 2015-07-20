@@ -24,6 +24,7 @@
 
   networking = {
     wireless.enable = true;
+    useDHCP = false;
 
     hostName = "kbuilder";
     hostId = "c809225e";
@@ -33,6 +34,11 @@
       10.0.0.10 jetson
     '';
 
+    interfaces = {
+      enp9s0 = { ip4 = [{ address = "10.0.0.1"; prefixLength = 8; }]; };
+      wlp5s0b1 = { useDHCP = true; };
+    };
+
     firewall = {
       enable = lib.mkForce true;
       allowPing = true;
@@ -40,6 +46,17 @@
       rejectPackets = false;
       allowedTCPPortRanges = [{ from = 220; to = 230; }];
       trustedInterfaces = ["enp9s0"];
+    };
+
+    nat = {
+      enable = true;
+      externalInterface = "wlp5s0b1";
+      internalInterfaces = ["enp9s0"];
+      forwardPorts = [
+        { sourcePort = 223; destination = "10.0.0.2:22"; }    # SSH on raspi
+        { sourcePort = 224; destination = "10.0.0.10:22"; }   # SSH on jetson
+        { sourcePort = 230; destination = "10.0.0.2:230"; }   # jetson-powerctl on raspi
+      ];
     };
   };
 
@@ -85,26 +102,10 @@
         host jetson {
           hardware ethernet 00:04:4b:25:ae:c9;
           fixed-address 10.0.0.10;
-          filename "/boot.scr.uimg";
           next-server 10.0.0.1;
         }
       }
     '';
-  };
-
-  networking.interfaces.enp9s0 = {
-    ip4 = [{ address = "10.0.0.1"; prefixLength = 8; }];
-  };
-
-  networking.nat = {
-    enable = true;
-    externalInterface = "wlp5s0b1";
-    internalInterfaces = ["enp9s0"];
-    forwardPorts = [
-      { sourcePort = 223; destination = "10.0.0.2:22"; }    # SSH on raspi
-      { sourcePort = 224; destination = "10.0.0.10:22"; }   # SSH on jetson
-      { sourcePort = 230; destination = "10.0.0.2:230"; }   # jetson-powerctl on raspi
-    ];
   };
 
   nix.readOnlyStore = false; # nix-push --link fails otherwise
