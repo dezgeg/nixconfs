@@ -104,6 +104,12 @@
           fixed-address 10.0.0.10;
           next-server 10.0.0.1;
         }
+
+        host pcduino {
+          hardware ethernet 02:4b:05:41:d2:61;
+          fixed-address 10.0.0.11;
+          next-server 10.0.0.1;
+        }
       }
     '';
   };
