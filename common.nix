@@ -34,6 +34,7 @@
     wget
     zsh
   ];
+  system.extraDependencies = with pkgs; [ stdenv busybox busybox.src.mirrorsFile ];
 
   networking.domain = "dezgeg.me";
   networking.firewall.enable = false;
@@ -42,13 +43,16 @@
 
   services.openssh.enable = true;
   services.openssh.ports = [222];
-  programs.ssh.setXAuthLocation = true; # forward X11 connections
+
   programs.bash.enableCompletion = true;
+  programs.ssh.setXAuthLocation = true; # forward X11 connections
+  programs.ssh.startAgent = false;
 
   services.nixosManual.enable = false; # slows down nixos-rebuilds
   services.nscd.enable = false;
   services.cron.enable = false;
   services.ntp.enable = false;
+  services.udisks2.enable = false;
 
   services.timesyncd.enable = true;
   services.resolved.enable = true;
