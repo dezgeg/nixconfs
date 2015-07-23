@@ -121,8 +121,8 @@
     {
       hostName = "jetson";
       sshUser = "root";
-      sshKey = "/etc/remote-builds/id_rsa";
-      system = "armv7l-linux";
+      sshKey = "/etc/nix/remote-build-key.priv"; # Populated in passwords.nix
+      system = "armv6l-linux,armv7l-linux";
       maxJobs = 4;
     }
   ];
