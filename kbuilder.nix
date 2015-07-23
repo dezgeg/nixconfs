@@ -44,6 +44,7 @@
       allowPing = true;
       logRefusedConnections = false;
       rejectPackets = false;
+      allowedTCPPorts = [ 5000 ];
       allowedTCPPortRanges = [{ from = 220; to = 230; }];
       trustedInterfaces = ["enp9s0"];
     };
