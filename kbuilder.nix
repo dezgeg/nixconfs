@@ -56,6 +56,7 @@
       forwardPorts = [
         { sourcePort = 223; destination = "10.0.0.2:22"; }    # SSH on raspi
         { sourcePort = 224; destination = "10.0.0.10:22"; }   # SSH on jetson
+        { sourcePort = 225; destination = "10.0.0.11:22"; }   # SSH on pcduino
         { sourcePort = 230; destination = "10.0.0.2:230"; }   # jetson-powerctl on raspi
       ];
     };
