@@ -32,6 +32,7 @@
       10.0.0.1 kbuilder
       10.0.0.2 raspi
       10.0.0.10 jetson
+      10.0.0.11 pcduino
     '';
 
     interfaces = {
