@@ -21,6 +21,7 @@
     nix-prefetch-scripts
     nix-repl
     nox
+    openssl # for speed-testing via 'openssl speed'
     pciutils # lspci
     psmisc # killall
     pv
