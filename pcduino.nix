@@ -9,6 +9,8 @@
   networking.hostName = "pcduino";
   networking.hostId = "b4d1498d";
 
+  boot.kernelPackages = pkgs.linuxPackages_testing;
+
   fileSystems = {
     "/boot" = {
       device = "/dev/disk/by-label/NIXOS_BOOT";

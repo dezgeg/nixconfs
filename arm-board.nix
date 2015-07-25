@@ -13,9 +13,6 @@
   boot.consoleLogLevel = 8;
   boot.kernelParams = ["console=ttyS0,115200n8"];
 
-  #boot.kernelPackages = pkgs.linuxPackages_testing;
-  boot.kernelPackages = pkgs.linuxPackages_dezgeg;
-
   boot.loader.grub.enable = false;
   boot.loader.generic-extlinux-compatible.enable = true;
 

@@ -10,7 +10,7 @@
   networking.hostId = "8f076ab4";
 
   boot.kernelParams = ["smsc95xx.macaddr=b8:27:eb:63:84:ca"];
-  boot.kernelPackages = lib.mkForce pkgs.linuxPackages_rpi;
+  boot.kernelPackages = pkgs.linuxPackages_rpi;
 
   fileSystems = {
     "/boot" = {

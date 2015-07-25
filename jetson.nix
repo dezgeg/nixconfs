@@ -21,6 +21,10 @@
 
   hardware.opengl.enable = true;
 
+  boot.blacklistedKernelModules = ["tegra_devfreq"];
+  #boot.kernelPackages = pkgs.linuxPackages_testing;
+  boot.kernelPackages = pkgs.linuxPackages_dezgeg;
+
   fileSystems."/" = {
     device = "/dev/mmcblk0p1";
     fsType = "ext4";
