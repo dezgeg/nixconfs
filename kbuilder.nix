@@ -119,6 +119,10 @@
 
   nix.readOnlyStore = false; # nix-push --link fails otherwise
   nix.distributedBuilds = true;
+
+  # TODO: ARM board speed factors:
+  #   jetson:  rsa 2048 bits 0.002813s 0.000082s    355.5  12158.1
+  #   pcduino: rsa 2048 bits 0.021260s 0.000652s     47.0   1534.3
   nix.buildMachines = [
     {
       hostName = "jetson";
@@ -126,6 +130,13 @@
       sshKey = "/etc/nix/remote-build-key.priv"; # Populated in passwords.nix
       system = "armv6l-linux,armv7l-linux";
       maxJobs = 4;
+    }
+    {
+      hostName = "pcduino"; # rsa 2048 bits 0.002813s 0.000082s    355.5  12158.1
+      sshUser = "root";
+      sshKey = "/etc/nix/remote-build-key.priv"; # Populated in passwords.nix
+      system = "armv7l-linux";
+      maxJobs = 2;
     }
   ];
 }
