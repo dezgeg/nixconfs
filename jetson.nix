@@ -16,6 +16,9 @@
     #libvpx
   ];
 
+  nix.requireSignedBinaryCaches = false;
+  nix.package = pkgs.nixDezgeg;
+
   networking.hostName = "jetson";
   networking.hostId = "71d65fa9";
 
