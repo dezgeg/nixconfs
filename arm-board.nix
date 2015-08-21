@@ -20,7 +20,10 @@
   hardware.opengl.enable = lib.mkDefault false;
   powerManagement.enable = false;
 
-  nix.binaryCaches = lib.mkForce ["http://10.0.0.1:5000"];
+  nix.binaryCaches = lib.mkForce [
+    "http://10.0.0.1:5000"
+    "http://nixos-arm.dezgeg.me/channel"
+  ];
   nix.maxJobs = 4;
   nix.buildCores = 0;
   nix.extraOptions = ''
