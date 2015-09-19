@@ -9,7 +9,7 @@
   networking.hostName = "pcduino";
   networking.hostId = "b4d1498d";
 
-  boot.kernelPackages = pkgs.linuxPackages_testing;
+  boot.kernelPackages = pkgs.linuxPackages_latest;
 
   fileSystems = {
     "/boot" = {
