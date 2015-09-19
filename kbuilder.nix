@@ -15,9 +15,7 @@
     picocom
   ];
 
-  services.timesyncd.enable = lib.mkForce false; # Change this once systemd is updated
   services.nix-serve.enable = true;
-
   services.logind.extraConfig = ''
     HandleLidSwitch=ignore
   '';
