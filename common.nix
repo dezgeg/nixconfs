@@ -18,7 +18,8 @@
     mosh
     mtr
     ncdu
-    nix-prefetch-scripts
+    nix-prefetch-git
+    nix-prefetch-zip
     nix-repl
     nox
     openssl # for speed-testing via 'openssl speed'
