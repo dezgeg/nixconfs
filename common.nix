@@ -58,6 +58,7 @@
 
   services.timesyncd.enable = true;
   services.resolved.enable = true;
+  systemd.coredump.enable = true;
 
   security.sudo.wheelNeedsPassword = false;
   services.mingetty.autologinUser = "tmtynkky";
