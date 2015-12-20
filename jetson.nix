@@ -24,6 +24,7 @@
 
   hardware.opengl.enable = false;
 
+  boot.kernelParams = ["console=ttyS0,115200n8"];
   boot.blacklistedKernelModules = ["tegra_devfreq"];
   #boot.kernelPackages = pkgs.linuxPackages_testing;
   boot.kernelPackages = pkgs.linuxPackages_dezgeg;
