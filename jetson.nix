@@ -22,7 +22,7 @@
   networking.hostName = "jetson";
   networking.hostId = "71d65fa9";
 
-  hardware.opengl.enable = true;
+  hardware.opengl.enable = false;
 
   boot.blacklistedKernelModules = ["tegra_devfreq"];
   #boot.kernelPackages = pkgs.linuxPackages_testing;
