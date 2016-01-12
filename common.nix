@@ -55,6 +55,7 @@
   services.cron.enable = false;
   services.ntp.enable = false;
   services.udisks2.enable = false;
+  security.audit.enable = false;
 
   services.timesyncd.enable = true;
   services.resolved.enable = true;
