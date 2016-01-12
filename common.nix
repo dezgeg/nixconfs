@@ -91,7 +91,7 @@
   i18n.defaultLocale = "en_US.UTF-8";
 
   nixpkgs.config.allowUnfree = true;
-  # nix.package = pkgs.nixUnstable; # TODO: enable once non-broken
+  nix.package = pkgs.nixUnstable;
   nix.trustedUsers = ["tmtynkky"];
   nix.binaryCachePublicKeys = [
     "hydra.nixos.org-1:CNHJZBh9K4tP3EKF6FkkgeVYsS3ohTl+oS0Qa8bezVs="
