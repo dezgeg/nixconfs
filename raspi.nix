@@ -22,4 +22,5 @@
       fsType = "ext4";
     };
   };
+  swapDevices = [ { device = "/swap"; } ];
 }
