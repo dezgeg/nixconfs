@@ -128,13 +128,14 @@
       sshKey = "/etc/nix/remote-build-key.priv"; # Populated in passwords.nix
       system = "armv6l-linux,armv7l-linux";
       maxJobs = 4;
+      supportedFeatures = ["big-parallel"];
     }
-    {
-      hostName = "pcduino"; # rsa 2048 bits 0.002813s 0.000082s    355.5  12158.1
-      sshUser = "root";
-      sshKey = "/etc/nix/remote-build-key.priv"; # Populated in passwords.nix
-      system = "armv7l-linux";
-      maxJobs = 2;
-    }
+#    {
+#      hostName = "pcduino"; # rsa 2048 bits 0.002813s 0.000082s    355.5  12158.1
+#      sshUser = "root";
+#      sshKey = "/etc/nix/remote-build-key.priv"; # Populated in passwords.nix
+#      system = "armv7l-linux";
+#      maxJobs = 2;
+#    }
   ];
 }
