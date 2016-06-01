@@ -31,9 +31,11 @@
     tcpdump
     traceroute
     tree
+    unzip
     usbutils # lsusb
     vim
     wget
+    zip
     zsh
   ];
   system.extraDependencies = with pkgs; [ stdenv busybox busybox.src.mirrorsFile ];
