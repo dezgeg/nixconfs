@@ -11,12 +11,10 @@
   '';
 
   boot.consoleLogLevel = 8;
-  boot.kernelParams = ["console=ttyS0,115200n8"];
 
   boot.loader.grub.enable = false;
   boot.loader.generic-extlinux-compatible.enable = true;
 
-  hardware.enableAllFirmware = true;
   hardware.opengl.enable = lib.mkDefault false;
   powerManagement.enable = false;
 

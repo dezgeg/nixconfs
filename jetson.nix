@@ -17,11 +17,11 @@
   ];
 
   nix.requireSignedBinaryCaches = false;
-  nix.package = lib.mkForce pkgs.nixDezgeg;
 
   networking.hostName = "jetson";
   networking.hostId = "71d65fa9";
 
+  hardware.enableAllFirmware = true; # XXX needed for Ethernet
   hardware.opengl.enable = false;
 
   boot.kernelParams = ["console=ttyS0,115200n8"];
