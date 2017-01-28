@@ -89,8 +89,12 @@
   services.journald.extraConfig = "SystemMaxUse=100M";
 
   time.timeZone = "Europe/Helsinki";
-  i18n.consoleKeyMap = "dvorak";
   i18n.defaultLocale = "en_US.UTF-8";
+  i18n.consoleKeyMap = "dvorak";
+  services.xserver = {
+    xkbVariant = "dvorak";
+    xkbOptions = "ctrl:nocaps";
+  };
 
   nixpkgs.config.allowUnfree = true;
   nix.package = pkgs.nixUnstable;
