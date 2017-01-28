@@ -1,0 +1,4 @@
+linuxPackages_latest.cpupower
+linuxPackages_rpi.cpupower
+linuxPackages_rpi.kernel
+ubootRaspberryPi

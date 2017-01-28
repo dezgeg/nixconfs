@@ -1,0 +1,2 @@
+linuxPackages_latest.cpupower
+linuxPackages_latest.kernel
