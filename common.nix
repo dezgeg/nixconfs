@@ -100,7 +100,6 @@
   nix.package = pkgs.nixUnstable;
   nix.trustedUsers = ["tmtynkky"];
   nix.binaryCachePublicKeys = [
-    "hydra.nixos.org-1:CNHJZBh9K4tP3EKF6FkkgeVYsS3ohTl+oS0Qa8bezVs="
     "nixos-arm.dezgeg.me-1:xBaUKS3n17BZPKeyxL4JfbTqECsT+ysbDJz29kLFRW0=%"
   ];
   nix.extraOptions = ''
