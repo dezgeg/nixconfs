@@ -1,0 +1,43 @@
+########################################################################################################################
+# This derives from the global common config.
+lxc.include = /usr/share/lxc/config/common.conf
+
+# Now undo some undesired parts of that common config.
+# The default (/usr/share/lxc/hooks/clonehostname) messes with /etc/hosts of the container
+lxc.hook.clone =
+# Capabilities are enough. Don't use seccomp.
+lxc.seccomp =
+# NixOS uses this location for init instead of /sbin/init.
+# TODO: maybe make the nixos container module create '/sbin/init' instead of '/init'?
+lxc.init_cmd = /init
+
+########################################################################################################################
+# Container specific configuration
+lxc.rootfs = /var/lib/lxc/nixos-test/rootfs
+lxc.utsname = nixos-test
+########################################################################################################################
+# Network configuration
+
+# This one shares the network namespace with host.
+# Note that if DHCP is enabled, shutting down the container makes the host lose the IP as well!
+lxc.network.type = none
+lxc.cap.drop = net_admin
+
+########################################################################################################################
+# Extra cgroup device access
+
+# rtc
+lxc.cgroup.devices.allow = c 254:0 rm
+# tun
+lxc.cgroup.devices.allow = c 10:200 rwm
+# hpet
+lxc.cgroup.devices.allow = c 10:228 rwm
+# kvm
+lxc.cgroup.devices.allow = c 10:232 rwm
+# loop
+lxc.cgroup.devices.allow = b 7:* rwm
+
+########################################################################################################################
+
+# Prevent accidents like powering off the host :)
+lxc.cap.drop = sys_boot
