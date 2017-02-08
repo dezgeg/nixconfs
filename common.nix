@@ -1,4 +1,4 @@
-{ config, pkgs, ... }: {
+{ config, pkgs, lib, ... }: {
 
   environment.systemPackages = with pkgs; [
     bc
@@ -51,13 +51,14 @@
   programs.bash.enableCompletion = true;
   programs.ssh.setXAuthLocation = true; # forward X11 connections
   programs.ssh.startAgent = false;
+  systemd.user.services.ssh-agent.wantedBy = lib.mkForce []; # FIXME
 
   services.nixosManual.enable = false; # slows down nixos-rebuilds
   services.nscd.enable = false;
   services.cron.enable = false;
   services.ntp.enable = false;
   services.udisks2.enable = false;
-  security.audit.enable = false;
+  security.audit.enable = lib.mkForce false;
 
   services.timesyncd.enable = true;
   services.resolved.enable = true;
