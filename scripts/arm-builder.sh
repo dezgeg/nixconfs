@@ -78,6 +78,7 @@ cd $HOME/arm-builder/nixpkgs
 ##### Build packages
 instopts="--keep-going --fallback --show-trace --argstr system ${arch}l-linux"
 nixopts="$instopts --no-out-link --option use-binary-caches false"
+export NIXPKGS_ALLOW_UNFREE=1
 
 # ARMv6 hack
 if [ "$arch" = armv6 ]; then
