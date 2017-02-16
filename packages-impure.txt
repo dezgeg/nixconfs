@@ -2,8 +2,10 @@ stdenv
 stdenv.cc.stdenv
 stdenv.cc.stdenv.cc.stdenv
 bc.src.mirrorsFile
-
 binutils.stdenv
+
+acl
+attr
 bzip2
 coreutils
 diffutils

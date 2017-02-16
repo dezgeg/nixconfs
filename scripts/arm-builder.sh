@@ -92,7 +92,11 @@ if [ "$arch" = armv6 ]; then
     drvs=$(trace $cmd | sed -e 's/!.*$//' | tr '\n' ' ')
     trace sudo nix-copy-closure --to root@raspi $drvs
     outputs=$(trace ssh raspi "sudo nix-store -r $drvs --option signed-binary-caches 0 --fallback -j1")
-    trace sudo nix-copy-closure --from root@raspi $outputs
+    if [ -z "$outputs" ]; then
+        echo "Impure build failed."
+        exit 1
+    fi
+    trace sudo nix-copy-closure --from root@raspi --include-outputs $drvs $outputs
 fi
 
 if [ "$target" != images ]; then
