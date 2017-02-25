@@ -83,7 +83,7 @@
     root = "/srv/tftp";
   };
 
-  services.dhcpd = {
+  services.dhcpd4 = {
     enable = true;
     interfaces = ["enp9s0"];
     extraConfig = ''
