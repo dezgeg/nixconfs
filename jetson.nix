@@ -28,7 +28,7 @@
   boot.blacklistedKernelModules = ["tegra_devfreq"];
   #boot.kernelPackages = pkgs.linuxPackages_testing;
   #boot.kernelPackages = pkgs.linuxPackages_latest;
-  boot.kernelPackages = pkgs.linuxPackages_4_5;
+  boot.kernelPackages = pkgs.linuxPackages_4_9;
   #boot.kernelPackages = pkgs.linuxPackages_dezgeg;
 
   fileSystems."/" = {
