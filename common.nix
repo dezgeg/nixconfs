@@ -97,7 +97,6 @@
   };
 
   nixpkgs.config.allowUnfree = true;
-  nix.package = pkgs.nixUnstable;
   nix.trustedUsers = ["tmtynkky"];
   nix.binaryCachePublicKeys = [
     "nixos-arm.dezgeg.me-1:xBaUKS3n17BZPKeyxL4JfbTqECsT+ysbDJz29kLFRW0=%"
@@ -105,4 +104,6 @@
   nix.extraOptions = ''
     build-cache-failure = true
   '';
+  # Too unstable currently.
+  # nix.package = pkgs.nixUnstable;
 }
