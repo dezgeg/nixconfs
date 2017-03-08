@@ -22,7 +22,6 @@
     "http://10.0.0.1:5000"
     "http://nixos-arm.dezgeg.me/channel"
   ];
-  nix.maxJobs = 4;
   nix.buildCores = 0;
   nix.extraOptions = ''
     gc-keep-derivations = false

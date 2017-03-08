@@ -16,6 +16,7 @@
     #libvpx
   ];
 
+  nix.maxJobs = 4;
   nix.requireSignedBinaryCaches = false;
 
   networking.hostName = "jetson";
