@@ -117,6 +117,7 @@
 
   nix.readOnlyStore = false; # nix-push --link fails otherwise
   nix.distributedBuilds = true;
+  nix.binaryCaches = [ "https://cache.nixos.org" "http://nixos-arm.dezgeg.me/channel" ];
 
   # TODO: ARM board speed factors:
   #   jetson:  rsa 2048 bits 0.002813s 0.000082s    355.5  12158.1

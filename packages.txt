@@ -58,7 +58,7 @@ dtrx
 e2fsprogs
 elfutils
 elinks
-emacs
+# emacs # Too huge dependency tree
 emacs25-nox
 ethtool
 f2fs-tools
