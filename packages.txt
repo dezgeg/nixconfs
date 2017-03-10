@@ -180,7 +180,7 @@ nix-prefetch-scripts
 nix-repl
 nix-serve
 nixStable
-nixUnstable
+# nixUnstable # Too big deps on ARMv6.
 nmap
 nox
 nssTools
