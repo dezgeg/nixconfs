@@ -71,6 +71,7 @@ flashbench
 flex
 fontconfig
 fontconfig_210
+fontconfig-penultimate
 fontconfig-ultimate
 freefont_ttf
 fuse
