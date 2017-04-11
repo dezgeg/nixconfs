@@ -18,6 +18,7 @@
 
   nix.maxJobs = 4;
   nix.requireSignedBinaryCaches = false;
+  nix.useSandbox = true;
 
   networking.hostName = "jetson";
   networking.hostId = "71d65fa9";
