@@ -24,6 +24,7 @@ binutils
 bison
 blktrace
 bonnie
+brotli
 btrfs-progs
 busybox
 bzip2
@@ -130,6 +131,7 @@ leveldb
 libaio
 libbsd
 libcap
+libcap_ng
 liberation_ttf
 libfaketime
 libgcrypt
