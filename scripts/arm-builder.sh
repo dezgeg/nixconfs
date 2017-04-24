@@ -101,7 +101,7 @@ fi
 
 if [ "$target" != images ]; then
 
-    cmd="nix-build --timeout 14400 $nixopts"
+    cmd="nix-build --timeout 28800 $nixopts"
     for attr in $(cat $confDir/packages.txt $confDir/packages-$arch.txt 2>/dev/null | sed -e 's/#.*$//g'); do
         cmd="$cmd -A ${attr}.all"
     done
@@ -129,7 +129,7 @@ elif [ "$target" = images ]; then
         trace nix-build ./nixpkgs $nixopts -A ubootBananaPi -A ubootBeagleboneBlack -A ubootJetsonTK1 -A ubootPcduino3Nano -A ubootRaspberryPi2 -A ubootRaspberryPi3_32bit -A ubootWandboard >> installer-closure
     fi
 
-    trace nix-build --timeout 14400 -I nixpkgs=./nixpkgs -I nixos-config="$conf" '<nixpkgs/nixos>' $nixopts -A config.system.build.sdImage >> installer-closure
+    trace nix-build --timeout 28800 -I nixpkgs=./nixpkgs -I nixos-config="$conf" '<nixpkgs/nixos>' $nixopts -A config.system.build.sdImage >> installer-closure
     for f in $(find $(cat installer-closure) -type f); do
         trace sudo ln $f installer/$(cleanName $f)
     done
