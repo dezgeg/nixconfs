@@ -177,7 +177,8 @@ nfs-utils
 nghttp2
 # nginx
 nix
-nix-prefetch-scripts
+nix-prefetch-git
+nix-prefetch-svn
 nix-repl
 nix-serve
 nixStable
