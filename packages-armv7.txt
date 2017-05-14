@@ -1,2 +1,3 @@
 linuxPackages_latest.cpupower
 linuxPackages_latest.kernel
+valgrind # Doesn't build on v6

@@ -255,7 +255,6 @@ unzip
 usbutils
 utillinux
 utillinuxCurses
-valgrind
 vim
 vim_configurable
 vimHugeX
