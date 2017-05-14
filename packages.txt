@@ -184,7 +184,7 @@ nix-prefetch-svn
 nix-repl
 nix-serve
 nixStable
-# nixUnstable # Too big deps on ARMv6.
+nixUnstable
 nmap
 nox
 nssTools

@@ -21,7 +21,7 @@ libgpgerror
 libiconv
 nix
 nixStable
-# nixUnstable # Too big deps on ARMv6.
+nixUnstable
 openssl
 openssl_1_0_2
 paxctl
