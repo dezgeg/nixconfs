@@ -222,6 +222,7 @@ rfkill
 rng_tools
 rogue
 rsync
+rtl8192su-firmware
 rtl8723bs-firmware
 ruby
 rxvt_unicode
@@ -250,6 +251,7 @@ trinity
 tzdata
 ubootTools
 udisks
+udisks2
 unifont
 unzip
 usbutils
@@ -260,6 +262,7 @@ vim_configurable
 vimHugeX
 vimNox
 w3m
+w3m-nox
 weechat
 # westonLite
 wget
