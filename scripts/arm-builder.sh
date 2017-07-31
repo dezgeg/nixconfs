@@ -69,22 +69,15 @@ echo -n "$(git rev-parse HEAD)" > .git-revision
 cd $HOME/arm-builder
 trace rsync --exclude .git -a --delete nixpkgs.git/ nixpkgs/
 
-cd $HOME/arm-builder/nixpkgs
-##### Prepare build slaves
-
-#trace ssh jetson 'nix-store --gc --print-live' | trace sudo xargs nix-copy-closure --from root@jetson
-#trace ssh jetson 'nix-store --gc --print-dead' | trace sudo xargs nix-copy-closure --from root@jetson
-
 ##### Build packages
+cd $HOME/arm-builder/nixpkgs
+
 instopts="--keep-going --fallback --show-trace --argstr system ${arch}l-linux"
 nixopts="$instopts --no-out-link --option use-binary-caches false"
 export NIXPKGS_ALLOW_UNFREE=1
 
 # ARMv6 hack
 if [ "$arch" = armv6 ]; then
-    #trace nix-build $nixopts -A stdenv.all >/dev/null
-    #drvs=$(trace nix-instantiate $instopts -A openssl -A openssl_1_0_1 -A openssl_1_0_2 -A nix -A nixStable | tr '\n' ' ')
-
     cmd="nix-instantiate $instopts"
     for attr in $(cat $confDir/packages-impure.txt 2>/dev/null | sed -e 's/#.*$//g'); do
         cmd="$cmd -A ${attr}.all"
@@ -100,7 +93,6 @@ if [ "$arch" = armv6 ]; then
 fi
 
 if [ "$target" != images ]; then
-
     cmd="nix-build --timeout 28800 $nixopts"
     for attr in $(cat $confDir/packages.txt $confDir/packages-$arch.txt 2>/dev/null | sed -e 's/#.*$//g'); do
         cmd="$cmd -A ${attr}.all"
