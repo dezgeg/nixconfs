@@ -266,6 +266,7 @@ w3m-nox
 weechat
 # westonLite
 wget
+which
 wirelesstools
 # wl # XXX
 wpa_supplicant
