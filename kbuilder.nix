@@ -9,6 +9,7 @@
   boot.loader.grub.enable = true;
   boot.loader.grub.device = "/dev/sda";
   boot.loader.grub.gfxmodeBios = "text";
+  boot.loader.grub.copyKernels = true; # Loading stuff from XFS is dog slow otherwise
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
   environment.systemPackages = with pkgs; [
