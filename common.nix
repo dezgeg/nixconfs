@@ -83,7 +83,7 @@
   fileSystems."/tmp" = {
     device = "nodev";
     fsType = "tmpfs";
-    options = ["size=4G" "nr_inodes=300000"];
+    options = ["size=4608M" "nr_inodes=300000"];
   };
 
   services.journald.extraConfig = "SystemMaxUse=100M";
