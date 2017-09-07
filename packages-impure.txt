@@ -17,6 +17,7 @@ gmpxx
 gnugrep
 gnused
 gnutar
+libgcrypt
 libgpgerror
 libiconv
 nix

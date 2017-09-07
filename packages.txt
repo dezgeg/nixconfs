@@ -23,7 +23,9 @@ bind
 binutils
 bison
 blktrace
+bluez
 bonnie
+broadcom-bt-firmware
 brotli
 btrfs-progs
 busybox
