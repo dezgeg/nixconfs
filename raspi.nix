@@ -9,7 +9,6 @@
   networking.hostName = "raspi";
   networking.hostId = "8f076ab4";
 
-  boot.kernelParams = ["smsc95xx.macaddr=b8:27:eb:63:84:ca"];
   boot.kernelPackages = pkgs.linuxPackages_rpi;
 
   fileSystems = {
