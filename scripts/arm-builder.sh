@@ -36,6 +36,12 @@ trace() {
     "$@"
 }
 
+packageListToAttrParams() {
+    for attr in $(cat "$@" | sed -e 's/#.*$//g'); do
+        echo -n " -A ${attr}.all"
+    done
+}
+
 ##### Initial git cloning
 
 confDir=$(readlink -f $(dirname $0)/..)
@@ -78,10 +84,7 @@ export NIXPKGS_ALLOW_UNFREE=1
 
 # ARMv6 hack
 if [ "$arch" = armv6 ]; then
-    cmd="nix-instantiate $instopts"
-    for attr in $(cat $confDir/packages-impure.txt 2>/dev/null | sed -e 's/#.*$//g'); do
-        cmd="$cmd -A ${attr}.all"
-    done
+    cmd="nix-instantiate $instopts $(packageListToAttrParams $confDir/packages-impure.txt)"
     drvs=$(trace $cmd | sed -e 's/!.*$//' | tr '\n' ' ')
     trace sudo nix-copy-closure --to root@raspi $drvs
     outputs=$(trace ssh raspi "sudo nix-store -r $drvs --option signed-binary-caches 0 --fallback -j1")
@@ -93,10 +96,7 @@ if [ "$arch" = armv6 ]; then
 fi
 
 if [ "$target" != images ]; then
-    cmd="nix-build --timeout 28800 $nixopts"
-    for attr in $(cat $confDir/packages.txt $confDir/packages-$arch.txt 2>/dev/null | sed -e 's/#.*$//g'); do
-        cmd="$cmd -A ${attr}.all"
-    done
+    cmd="nix-build --timeout 28800 $nixopts $(packageListToAttrParams $confDir/packages.txt $confDir/packages-$arch.txt)"
     set +e
     closure=$(NIXPKGS_ALLOW_UNFREE=1 trace $cmd)
     set -e
