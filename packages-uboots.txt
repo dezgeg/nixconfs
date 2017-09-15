@@ -1,0 +1,10 @@
+ubootA20OlinuxinoLime
+ubootBananaPi
+ubootBeagleboneBlack
+ubootJetsonTK1
+ubootOdroidXU3
+ubootPcduino3Nano
+ubootRaspberryPi2
+ubootRaspberryPi3_32bit
+ubootUtilite
+ubootWandboard

@@ -118,7 +118,7 @@ elif [ "$target" = images ]; then
         trace nix-build ./nixpkgs $nixopts -A ubootRaspberryPi >> installer-closure
     else
         conf='nixpkgs/nixos/modules/installer/cd-dvd/sd-image-armv7l-multiplatform.nix'
-        trace nix-build ./nixpkgs $nixopts -A ubootBananaPi -A ubootBeagleboneBlack -A ubootJetsonTK1 -A ubootPcduino3Nano -A ubootRaspberryPi2 -A ubootRaspberryPi3_32bit -A ubootWandboard >> installer-closure
+        trace nix-build ./nixpkgs $nixopts $(packageListToAttrParams $confDir/packages-uboots.txt) >> installer-closure
     fi
 
     trace nix-build --timeout 28800 -I nixpkgs=./nixpkgs -I nixos-config="$conf" '<nixpkgs/nixos>' $nixopts -A config.system.build.sdImage >> installer-closure
