@@ -1,16 +1,27 @@
 { config, pkgs, lib, ... }: {
 
   imports = [
-      ./hardware-configuration.nix
       ./common.nix
       ./passwords.nix
   ];
 
+  boot.initrd.availableKernelModules = [ "uhci_hcd" "ehci_pci" "ahci" "usb_storage" ];
   boot.loader.grub.enable = true;
   boot.loader.grub.device = "/dev/sda";
   boot.loader.grub.gfxmodeBios = "text";
   boot.loader.grub.copyKernels = true; # Loading stuff from XFS is dog slow otherwise
   boot.kernelPackages = pkgs.linuxPackages_latest;
+
+  fileSystems."/" = {
+    device = "/dev/disk/by-uuid/8b6b4c2d-7061-4bd3-af13-fdbe68508967";
+    fsType = "xfs";
+  };
+
+  swapDevices = [
+    { device = "/dev/disk/by-uuid/6c060441-95ac-40f7-b92b-118a077ab0e0"; }
+  ];
+
+  hardware.enableRedistributableFirmware = true;
 
   environment.systemPackages = with pkgs; [
     picocom
@@ -119,6 +130,7 @@
   nix.readOnlyStore = false; # nix-push --link fails otherwise
   nix.distributedBuilds = true;
   nix.binaryCaches = [ "https://cache.nixos.org" "http://nixos-arm.dezgeg.me/channel" ];
+  nix.maxJobs = 4;
 
   # TODO: ARM board speed factors:
   #   jetson:  rsa 2048 bits 0.002813s 0.000082s    355.5  12158.1
