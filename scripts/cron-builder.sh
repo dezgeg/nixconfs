@@ -64,7 +64,7 @@ check() {
             )
         elif [ "$target" = images ]; then
             trace mkdir -p ~/cshome/installer-temp/$arch/
-            time trace rsync -rd --delete kbuilder.dezgeg.me:arm-builder/installer/* --chmod F644 ~/cshome/installer-temp/$arch/
+            time trace rsync -rd --delete kbuilder.dezgeg.me:arm-builder/installer/ --chmod F644 ~/cshome/installer-temp/$arch/
 
             trace rm -rf ~/cshome/public_html/nixos-arm/installer
             trace mkdir -p ~/cshome/public_html/nixos-arm/installer
@@ -87,20 +87,19 @@ check() {
     fi
 }
 
-# ARMv7 master
-check armv7 build   master 1
+# ARMv7 master (only channel by default)
 check armv7 channel master 12
+check armv7 images  master 999
 
 # ARMv7 unstable
-check armv7 build   unstable 1
 check armv7 channel unstable 4
 check armv7 images  unstable 48
 
 check all gc all 24
 
-# ARMv6 master
-#check armv6 build   master 2
-check armv6 channel master 12
+# ARMv6 master (disabled by default)
+check armv6 channel master 999
+check armv6 images  master 999
 
 # ARMv6 unstable
 check armv6 channel unstable 48
