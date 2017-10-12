@@ -20,7 +20,7 @@
   };
 
   swapDevices = [
-    { device = "/dev/disk/by-label/NIXOS_SWAP"; }
+    { device = "/dev/disk/by-label/THINKPAD_SWAP"; }
   ];
 
   hardware.enableRedistributableFirmware = true;
@@ -29,19 +29,37 @@
     picocom
   ];
 
+  networking.hostName = "thinkpad";
+  networking.hostId = "119933b3";
+  networking.networkmanager.enable = true;
+
   services.logind.extraConfig = ''
     HandleLidSwitch=ignore
   '';
 
-  #services.ddclient = {
-  #  enable = true;
-  #  protocol = "namecheap";
-  #  domain = "kbuilder";
-  #  username = "dezgeg.me";
-  #  server = "dynamicdns.park-your-domain.com";
-  #  # password comes from ./passwords.nix
-  #};
+  services.ddclient = {
+    enable = true;
+    protocol = "namecheap";
+    domain = "@";
+    username = "dezgeg.me";
+    server = "dynamicdns.park-your-domain.com";
+    # password comes from ./passwords.nix
+  };
 
   nix.maxJobs = 4;
 
+  services.xserver = {
+    enable = true;
+    autorun = true;
+
+    # displayManager.lightdm.enable = true;
+    displayManager.auto = {
+      enable = true;
+      user = "tmtynkky";
+    };
+
+    desktopManager.xterm.enable = false;
+    windowManager.i3.enable = true;
+    windowManager.default = "i3";
+  };
 }
