@@ -71,6 +71,7 @@ fi
 trace git reset --hard FETCH_HEAD -q
 echo -n "$(NIX_PATH=nixpkgs=. bash nixos/modules/installer/tools/get-version-suffix)" > .version-suffix
 echo -n "$(git rev-parse HEAD)" > .git-revision
+echo "$(git rev-list --count HEAD).$(git rev-parse HEAD | cut -c 1-10)" > svn-revision
 
 cd $HOME/arm-builder
 trace rsync --exclude .git -a --delete nixpkgs.git/ nixpkgs/
