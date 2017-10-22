@@ -82,6 +82,7 @@
     windowManager.default = "i3";
 
     libinput.enable = true; # for touchpad
+    videoDrivers = [ "intel" ];
   };
   hardware.pulseaudio.enable = true;
   hardware.opengl.enable = true;
