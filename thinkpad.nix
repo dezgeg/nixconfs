@@ -8,6 +8,7 @@
   boot.initrd.availableKernelModules = [ "ahci" ];
   boot.loader.grub.enable = true;
   boot.loader.grub.device = "/dev/sda";
+  boot.loader.grub.useOSProber = true;
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
   fileSystems."/" = {
@@ -26,7 +27,25 @@
   hardware.enableRedistributableFirmware = true;
 
   environment.systemPackages = with pkgs; [
+    acpi
+    claws-mail
+    gnumake
+    gnuplot_qt
+    google-chrome
+    mpv
+    networkmanagerapplet
+    pavucontrol
     picocom
+    python2
+    python3
+    redshift
+    ruby
+    rxvt_unicode
+    scrot
+    sshfs
+    steam
+    xclip
+    xorg.xbacklight
   ];
 
   networking.hostName = "thinkpad";
@@ -61,5 +80,10 @@
     desktopManager.xterm.enable = false;
     windowManager.i3.enable = true;
     windowManager.default = "i3";
+
+    libinput.enable = true; # for touchpad
   };
+  hardware.pulseaudio.enable = true;
+  hardware.opengl.enable = true;
+  hardware.opengl.driSupport32Bit = true;
 }
