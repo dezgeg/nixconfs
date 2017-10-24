@@ -39,6 +39,7 @@ coreutils
 cpio
 cryptsetup
 curl
+cyrus_sasl
 dbus
 dbus.daemon
 dejavu_fonts
@@ -61,8 +62,8 @@ dtrx
 e2fsprogs
 elfutils
 elinks
-# emacs # Too huge dependency tree
 emacs25-nox
+# emacs # Too huge dependency tree
 ethtool
 f2fs-tools
 file
@@ -124,6 +125,7 @@ iw
 kbdKeymaps.dvp
 kbdKeymaps.neo
 kexectools
+keyutils
 kmod
 kmod-blacklist-ubuntu
 kmod-debian-aliases
@@ -192,6 +194,7 @@ nox
 nssTools
 ntp
 nukeReferences
+openldap
 openresolv
 openssh
 openssl
@@ -219,6 +222,7 @@ pulseaudioLight
 pv
 python2
 python3
+quota
 raspberrypifw
 rfkill
 rng_tools
