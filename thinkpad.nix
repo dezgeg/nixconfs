@@ -66,6 +66,7 @@
   };
 
   nix.maxJobs = 4;
+  nix.useSandbox = true;
 
   services.xserver = {
     enable = true;
