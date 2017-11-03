@@ -31,6 +31,7 @@ btrfs-progs
 busybox
 bzip2
 cacert
+ccrypt
 # clang
 cloog
 cloog_0_18_0
@@ -42,10 +43,12 @@ curl
 cyrus_sasl
 dbus
 dbus.daemon
+ddrescue
 dejavu_fonts
 dhcp
 dhcpcd
 diffutils
+dmraid
 docbook5
 docbook_xml_dtd_412
 docbook_xml_dtd_42
@@ -60,6 +63,8 @@ dropbear
 dtc
 dtrx
 e2fsprogs
+efibootmgr
+efivar
 elfutils
 elinks
 emacs25-nox
@@ -79,6 +84,7 @@ fontconfig-penultimate
 fontconfig-ultimate
 freefont_ttf
 fuse
+fuse3
 gawk
 gdb
 getopt
@@ -101,6 +107,7 @@ gnused
 gnutar
 gperf
 gpm
+gptfdisk
 # graphviz # Depends on non-ARM libdevil
 gzip
 hdparm
@@ -122,6 +129,7 @@ isl_0_12
 isl_0_14
 isl_0_15
 iw
+jfsutils
 kbdKeymaps.dvp
 kbdKeymaps.neo
 kexectools
@@ -169,6 +177,7 @@ mmc-utils
 mosh
 most
 mpfr
+mssys
 mtools
 mtr
 musl
@@ -235,6 +244,7 @@ rxvt_unicode
 rxvt_unicode.terminfo
 screen
 # SDL # FIXME: still armv6
+sdparm
 shadow
 smartmontools
 socat
@@ -247,6 +257,7 @@ subversion
 sudo
 systemd
 tcpdump
+testdisk
 texinfoInteractive
 time
 tmux
