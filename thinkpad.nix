@@ -29,11 +29,14 @@
   environment.systemPackages = with pkgs; [
     acpi
     claws-mail
+    gitAndTools.hub
     gnumake
     gnuplot_qt
     google-chrome
+    kdeApplications.okular
     mpv
     networkmanagerapplet
+    openvpn
     pavucontrol
     picocom
     python2
@@ -46,6 +49,7 @@
     steam
     xclip
     xorg.xbacklight
+    xorg.xmodmap
   ];
 
   networking.hostName = "thinkpad";
