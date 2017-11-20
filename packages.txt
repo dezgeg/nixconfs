@@ -172,6 +172,7 @@ mdadm
 memtester
 # mesa
 # mesa_drivers
+meson
 mkinitcpio-nfs-utils
 mmc-utils
 mosh
