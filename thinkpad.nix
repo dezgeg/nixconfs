@@ -71,6 +71,7 @@
 
   nix.maxJobs = 4;
   nix.useSandbox = true;
+  nix.package = pkgs.nixUnstable;
 
   services.xserver = {
     enable = true;
