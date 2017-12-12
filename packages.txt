@@ -236,6 +236,7 @@ python2
 python3
 quota
 raspberrypifw
+reiserfsprogs
 rfkill
 rng_tools
 rogue
