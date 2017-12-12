@@ -3,7 +3,9 @@ ubootBananaPi
 ubootBeagleboneBlack
 ubootJetsonTK1
 ubootOdroidXU3
+ubootOrangePiPc
 ubootPcduino3Nano
+ubootQemuArm
 ubootRaspberryPi2
 ubootRaspberryPi3_32bit
 ubootUtilite
