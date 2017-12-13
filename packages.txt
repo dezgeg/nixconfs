@@ -43,6 +43,7 @@ cryptsetup
 cups
 curl
 cyrus_sasl
+dblatex
 dbus
 dbus.daemon
 ddrescue
@@ -95,6 +96,7 @@ giflib
 git
 gitFull
 gitMinimal
+glib
 glibc
 glibcLocales
 # glmark2
@@ -102,6 +104,7 @@ gmp4
 gmp5
 gmp6
 gmpxx
+gnome_doc_utils
 gnu-efi
 gnugrep
 gnum4
@@ -111,6 +114,7 @@ gperf
 gpm
 gptfdisk
 # graphviz # Depends on non-ARM libdevil
+gtk_doc
 gzip
 hdparm
 host
@@ -217,6 +221,7 @@ parted
 patchutils
 paxctl
 pciutils
+pcre
 perl
 perlPackages.ArchiveCpio
 perlPackages.DBDSQLite
@@ -236,6 +241,7 @@ python2
 python3
 quota
 raspberrypifw
+readline
 reiserfsprogs
 rfkill
 rng_tools
