@@ -36,7 +36,7 @@ bzip2
 cacert
 ccrypt
 cifs-utils
-# clang
+clang
 cloog
 cloog_0_18_0
 cmake
@@ -98,6 +98,7 @@ gettext
 gfortran
 giflib
 git
+git-crypt
 gitFull
 gitMinimal
 glib
