@@ -33,13 +33,15 @@ cleanName() {
 
 trace() {
     echo "+ $@" >&2
-    "$@"
+    eval "$@"
 }
 
 packageListToAttrParams() {
+    echo -n "-E 'with import ./nixpkgs { system = \"${arch}l-linux\"; }; [ "
     for attr in $(cat "$@" | sed -e 's/#.*$//g'); do
-        echo -n " -A ${attr}.all"
+        echo -n "$attr.all "
     done
+    echo -n "]'"
 }
 
 ##### Initial git cloning
@@ -77,29 +79,27 @@ cd $HOME/arm-builder
 trace rsync --exclude .git -a --delete nixpkgs.git/ nixpkgs/
 
 ##### Build packages
-cd $HOME/arm-builder/nixpkgs
-
-instopts="--keep-going --fallback --show-trace --argstr system ${arch}l-linux"
+instopts="--keep-going --fallback --show-trace"
 nixopts="$instopts --no-out-link --option use-binary-caches false"
 export NIXPKGS_ALLOW_UNFREE=1
 
 # ARMv6 hack
 if [ "$arch" = armv6 ]; then
     cmd="nix-instantiate $instopts $(packageListToAttrParams $confDir/packages-impure.txt)"
-    drvs=$(trace $cmd | sed -e 's/!.*$//' | tr '\n' ' ')
+    drvs=$(trace "$cmd" | sed -e 's/!.*$//' | tr '\n' ' ')
     trace sudo nix-copy-closure --to root@raspi $drvs
     outputs=$(trace ssh raspi "sudo nix-store -r $drvs --option signed-binary-caches 0 --fallback -j1")
     if [ -z "$outputs" ]; then
         echo "Impure build failed."
         exit 1
     fi
-    trace sudo nix-copy-closure --from root@raspi --include-outputs $drvs $outputs
+    trace "sudo nix-copy-closure --from root@raspi --include-outputs $drvs $outputs"
 fi
 
 if [ "$target" != images ]; then
     cmd="nix-build --timeout 28800 $nixopts $(packageListToAttrParams $confDir/packages.txt $confDir/packages-$arch.txt)"
     set +e
-    closure=$(NIXPKGS_ALLOW_UNFREE=1 trace $cmd)
+    closure=$(trace "$cmd")
     set -e
     echo 'Package build done.'
 fi
@@ -116,18 +116,18 @@ elif [ "$target" = images ]; then
 
     if [ "$arch" = armv6 ]; then
         conf='nixpkgs/nixos/modules/installer/cd-dvd/sd-image-raspberrypi.nix'
-        trace nix-build ./nixpkgs $nixopts -A ubootRaspberryPi >> installer-closure
+        trace "nix-build $nixopts ./nixpkgs -A ubootRaspberryPi >> installer-closure"
     else
         conf='nixpkgs/nixos/modules/installer/cd-dvd/sd-image-armv7l-multiplatform.nix'
-        trace nix-build ./nixpkgs $nixopts $(packageListToAttrParams $confDir/packages-uboots.txt) >> installer-closure
+        trace "nix-build $nixopts $(packageListToAttrParams $confDir/packages-uboots.txt)" >> installer-closure
     fi
+    trace "nix-build --timeout 28800 -I nixpkgs=./nixpkgs -I nixos-config=$conf '<nixpkgs/nixos>' $nixopts --argstr system ${arch}l-linux -A config.system.build.sdImage" >> installer-closure
 
-    trace nix-build --timeout 28800 -I nixpkgs=./nixpkgs -I nixos-config="$conf" '<nixpkgs/nixos>' $nixopts -A config.system.build.sdImage >> installer-closure
     for f in $(find $(cat installer-closure) -type f); do
-        trace sudo ln $f installer/$(cleanName $f)
+        trace "sudo ln $f installer/$(cleanName $f)"
     done
 
     for host in jetson pcduino; do
-        trace ssh $host 'sudo nix-store --delete --ignore-liveness /nix/store/*.img' >&2 || true
+        trace "ssh $host 'sudo nix-store --delete --ignore-liveness /nix/store/*.img' >&2" || true
     done
 fi
