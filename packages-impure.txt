@@ -1,8 +1,12 @@
 stdenv
-stdenv.cc.stdenv
-stdenv.cc.stdenv.cc.stdenv
+stdenv.__bootPackages.stdenv
+stdenv.__bootPackages.stdenv.__bootPackages.stdenv
+stdenv.__bootPackages.stdenv.__bootPackages.stdenv.__bootPackages.stdenv
+stdenv.__bootPackages.stdenv.__bootPackages.stdenv.__bootPackages.stdenv.__bootPackages.stdenv
+stdenv.__bootPackages.stdenv.__bootPackages.stdenv.__bootPackages.stdenv.__bootPackages.stdenv.__bootPackages.stdenv
+stdenv.cc
+stdenvNoCC
 bc.src.mirrorsFile
-binutils.stdenv
 
 acl
 attr
