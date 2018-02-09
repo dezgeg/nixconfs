@@ -93,7 +93,7 @@ if [ "$arch" = armv6 ]; then
         echo "Impure build failed."
         exit 1
     fi
-    trace "sudo nix-copy-closure --from root@raspi --include-outputs $drvs $outputs"
+    trace "sudo nix-copy-closure --from root@raspi --include-outputs $(echo $drvs $outputs)"
 fi
 
 if [ "$target" != images ]; then
