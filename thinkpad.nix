@@ -10,6 +10,7 @@
   boot.loader.grub.device = "/dev/sda";
   boot.loader.grub.useOSProber = true;
   boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot.kernelParams = ["nopti"];
 
   fileSystems."/" = {
     device = "/dev/disk/by-label/THINKPAD_ROOT";
