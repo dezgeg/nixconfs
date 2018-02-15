@@ -116,7 +116,7 @@ elif [ "$target" = images ]; then
 
     if [ "$arch" = armv6 ]; then
         conf='nixpkgs/nixos/modules/installer/cd-dvd/sd-image-raspberrypi.nix'
-        trace "nix-build $nixopts ./nixpkgs -A ubootRaspberryPi >> installer-closure"
+        trace "nix-build $nixopts ./nixpkgs -A ubootRaspberryPi --argstr system armv6l-linux >> installer-closure"
     else
         conf='nixpkgs/nixos/modules/installer/cd-dvd/sd-image-armv7l-multiplatform.nix'
         trace "nix-build $nixopts $(packageListToAttrParams $confDir/packages-uboots.txt)" >> installer-closure
