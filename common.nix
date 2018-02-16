@@ -97,6 +97,7 @@
   };
 
   nixpkgs.config.allowUnfree = true;
+  nix.buildCores = 0;
   nix.trustedUsers = ["tmtynkky"];
   nix.binaryCachePublicKeys = [
     "nixos-arm.dezgeg.me-1:xBaUKS3n17BZPKeyxL4JfbTqECsT+ysbDJz29kLFRW0=%"
