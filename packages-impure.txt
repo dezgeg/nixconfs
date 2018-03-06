@@ -25,6 +25,7 @@ libgcrypt
 libgpgerror
 libiconv
 nix
+nix1
 nixStable
 nixUnstable
 openssl
