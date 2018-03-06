@@ -256,14 +256,17 @@ rtl8723bs-firmware
 ruby
 rxvt_unicode
 rxvt_unicode.terminfo
+samba
 screen
 # SDL # FIXME: still armv6
 sdparm
 shadow
+sharutils
 smartmontools
 socat
 sox
 spidermonkey
+sqlite
 sshfs-fuse
 strace
 su
