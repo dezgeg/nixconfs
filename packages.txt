@@ -203,6 +203,7 @@ nghttp2
 # nginx
 nix
 nix1
+nix-info
 nix-prefetch-git
 nix-prefetch-svn
 nix-repl
