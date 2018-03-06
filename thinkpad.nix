@@ -48,9 +48,12 @@
     scrot
     sshfs
     steam
+    valgrind
     xclip
     xorg.xbacklight
     xorg.xmodmap
+
+    config.boot.kernelPackages.perf
   ];
 
   networking.hostName = "thinkpad";
