@@ -139,6 +139,7 @@ isl_0_14
 isl_0_15
 iw
 jfsutils
+jq
 kbdKeymaps.dvp
 kbdKeymaps.neo
 kexectools
@@ -215,6 +216,7 @@ nox
 nssTools
 ntp
 nukeReferences
+oniguruma
 openldap
 openresolv
 openssh
