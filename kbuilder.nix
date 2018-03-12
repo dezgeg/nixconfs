@@ -11,6 +11,7 @@
   boot.loader.grub.gfxmodeBios = "text";
   boot.loader.grub.copyKernels = true; # Loading stuff from XFS is dog slow otherwise
   boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot.kernelParams = ["nopti"];
 
   fileSystems."/" = {
     device = "/dev/disk/by-uuid/8b6b4c2d-7061-4bd3-af13-fdbe68508967";
