@@ -80,7 +80,7 @@ trace rsync --exclude .git -a --delete nixpkgs.git/ nixpkgs/
 
 ##### Build packages
 instopts="--keep-going --fallback --show-trace"
-nixopts="$instopts --no-out-link --option use-binary-caches false"
+nixopts="$instopts --no-out-link --option build-use-substitutes false"
 export NIXPKGS_ALLOW_UNFREE=1
 
 # ARMv6 hack
