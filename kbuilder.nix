@@ -26,6 +26,9 @@
 
   environment.systemPackages = with pkgs; [
     picocom
+
+    # TODO: migrate arm-builder.sh away from nix-push
+    (pkgs.writeScriptBin "nix-push" ''exec ${pkgs.nix1}/bin/nix-push "$@"'')
   ];
 
   services.nix-serve.enable = true;
