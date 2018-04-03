@@ -95,6 +95,7 @@ gawk
 gdb
 getopt
 gettext
+gfortran
 giflib
 git
 gitFull
@@ -249,6 +250,7 @@ python2
 python3
 quota
 raspberrypifw
+raspberrypi-tools
 readline
 reiserfsprogs
 rfkill
