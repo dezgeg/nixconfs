@@ -131,6 +131,9 @@
     '';
   };
 
+  # For nix~case~hack fixes
+  nix.package = pkgs.nixUnstable;
+
   nix.readOnlyStore = false; # nix-push --link fails otherwise
   nix.distributedBuilds = true;
   nix.binaryCaches = [ "https://cache.nixos.org" "http://nixos-arm.dezgeg.me/channel" ];
