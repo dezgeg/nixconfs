@@ -121,11 +121,17 @@ elif [ "$target" = images ]; then
         conf='nixpkgs/nixos/modules/installer/cd-dvd/sd-image-armv7l-multiplatform.nix'
         trace "nix-build $nixopts $(packageListToAttrParams $confDir/packages-uboots.txt)" >> installer-closure
     fi
-    trace "nix-build --timeout 28800 -I nixpkgs=./nixpkgs -I nixos-config=$conf '<nixpkgs/nixos>' $nixopts --argstr system ${arch}l-linux -A config.system.build.sdImage" >> installer-closure
-
     for f in $(find $(cat installer-closure) -type f); do
         trace "sudo ln $f installer/$(cleanName $f)"
     done
+
+    image=$(trace "nix-build --timeout 28800 -I nixpkgs=./nixpkgs -I nixos-config=$conf '<nixpkgs/nixos>' $nixopts --argstr system ${arch}l-linux -A config.system.build.sdImage")
+    dest="sd-image-${arch}l-linux.img"
+    if [ -z "$image" ]; then
+        exit 1
+    fi
+    trace "sudo ln $image/sd-image/nixos-sd-image-*.img installer/$dest"
+    echo "$dest" >> installer-closure
 
     for host in jetson pcduino; do
         trace "ssh $host 'sudo nix-store --delete --ignore-liveness /nix/store/*.img' >&2" || true
