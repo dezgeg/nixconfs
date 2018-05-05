@@ -114,6 +114,7 @@ gnugrep
 gnum4
 gnused
 gnutar
+gnutls
 gperf
 gpm
 gptfdisk
@@ -155,6 +156,7 @@ libaio
 libbsd
 libcap
 libcap_ng
+libelf
 liberation_ttf
 libfaketime
 libgcrypt
@@ -212,7 +214,7 @@ nix-prefetch-svn
 nix-repl
 nix-serve
 nixStable
-nixUnstable
+# nixUnstable # v7 only for now
 nmap
 nox
 nssTools
@@ -287,7 +289,7 @@ tmux
 trace-cmd
 traceroute
 tree
-trinity
+#trinity
 tzdata
 ubootTools
 udisks
