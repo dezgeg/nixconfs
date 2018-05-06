@@ -12,9 +12,6 @@
 
   boot.consoleLogLevel = 8;
 
-  boot.loader.grub.enable = false;
-  boot.loader.generic-extlinux-compatible.enable = true;
-
   hardware.opengl.enable = lib.mkDefault false;
   powerManagement.enable = false;
 

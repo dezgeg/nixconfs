@@ -26,6 +26,9 @@
   hardware.enableAllFirmware = true; # XXX needed for Ethernet
   hardware.opengl.enable = false;
 
+  boot.loader.grub.enable = false;
+  boot.loader.generic-extlinux-compatible.enable = true;
+
   boot.kernelParams = ["console=ttyS0,115200n8 cma=8M"];
   boot.blacklistedKernelModules = ["tegra_devfreq"];
   #boot.kernelPackages = pkgs.linuxPackages_testing;
