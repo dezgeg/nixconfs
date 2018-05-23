@@ -187,6 +187,7 @@ memtester
 # mesa_drivers
 meson
 mkinitcpio-nfs-utils
+mkpasswd
 mmc-utils
 mosh
 most
@@ -239,6 +240,7 @@ perlPackages.DBDSQLite
 perlPackages.DBI
 perlPackages.FileSlurp
 perlPackages.JSON
+perlPackages.NetDBus
 perlPackages.StringShellQuote
 picocom
 pkgconfig
@@ -280,6 +282,7 @@ strace
 su
 subversion
 sudo
+swig
 systemd
 tcpdump
 testdisk
