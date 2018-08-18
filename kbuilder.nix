@@ -80,7 +80,7 @@
   services.ddclient = {
     enable = true;
     protocol = "namecheap";
-    domain = "kbuilder";
+    domains = ["kbuilder"];
     username = "dezgeg.me";
     server = "dynamicdns.park-your-domain.com";
     # password comes from ./passwords.nix
