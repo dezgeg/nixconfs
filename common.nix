@@ -19,7 +19,6 @@
     mtr
     ncdu
     nix-prefetch-git
-    nix-repl
     nox
     openssl # for speed-testing via 'openssl speed'
     pciutils # lspci
