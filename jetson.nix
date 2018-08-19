@@ -30,7 +30,7 @@
   boot.loader.generic-extlinux-compatible.enable = true;
 
   boot.kernelParams = ["console=ttyS0,115200n8 cma=8M"];
-  boot.blacklistedKernelModules = ["tegra_devfreq"];
+  boot.blacklistedKernelModules = ["tegra_devfreq" "nouveau"];
   #boot.kernelPackages = pkgs.linuxPackages_testing;
   boot.kernelPackages = pkgs.linuxPackages_latest;
   #boot.kernelPackages = pkgs.linuxPackages_4_9;
