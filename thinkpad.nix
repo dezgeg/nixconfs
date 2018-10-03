@@ -63,10 +63,7 @@
   networking.hostName = "thinkpad";
   networking.hostId = "119933b3";
   networking.networkmanager.enable = true;
-
-  services.logind.extraConfig = ''
-    HandleLidSwitch=ignore
-  '';
+  networking.extraHosts = builtins.readFile ./hosts-blocklist.txt;
 
   services.ddclient = {
     enable = true;
@@ -99,6 +96,7 @@
     videoDrivers = [ "intel" ];
   };
   hardware.pulseaudio.enable = true;
+  hardware.pulseaudio.support32Bit = true;
   hardware.opengl.enable = true;
   hardware.opengl.driSupport32Bit = true;
 }
