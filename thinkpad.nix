@@ -29,29 +29,33 @@
 
   environment.systemPackages = with pkgs; [
     acpi
-    claws-mail
     gitAndTools.hub
     gnumake
+    picocom
+    python2
+    python3
+    ruby
+    sshfs
+    valgrind
+
+    # X11 stuff.
+    claws-mail
     gnuplot_qt
     google-chrome
     kdeApplications.okular
     mpv
     networkmanagerapplet
-    openvpn
     pavucontrol
-    picocom
-    python2
-    python3
     redshift
-    ruby
     rxvt_unicode
     scrot
-    sshfs
-    steam
-    valgrind
     xclip
     xorg.xbacklight
     xorg.xmodmap
+
+    # Gaming.
+    steam
+    wine
 
     config.boot.kernelPackages.perf
   ];
